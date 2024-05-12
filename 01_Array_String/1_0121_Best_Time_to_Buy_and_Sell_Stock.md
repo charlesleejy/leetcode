@@ -5,7 +5,7 @@ You are given an array prices where prices[i] is the price of a given stock on t
 
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 
-Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+Return the maximum profit you can achieve FROM this transaction. If you cannot achieve any profit, return 0.
 
  
 
@@ -26,3 +26,44 @@ Constraints:
 
 1 <= prices.length <= 105
 0 <= prices[i] <= 104
+
+Explanation:
+- 'buy' variable set as the first element
+- itierate through the prices FROM 2nd element
+- update the 'buy' variable if price is lower than current price
+- update the 'profit' variable if the difference between currenr price and the buying price is greater than current profit
+- return final 'profit'
+
+
+Python
+```
+class Solution:
+    def maxProfit(self, prices):
+        buy = prices[0]
+        profit = 0
+        for i in range(1, len(prices)):
+            if prices[i] < buy:
+                buy = prices[i]
+            elif prices[i] - buy > profit:
+                profit = prices[i] - buy
+        return profit
+```
+
+
+Java
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        int buy = prices[0];
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < buy) {
+                buy = prices[i];
+            } else if (prices[i] - buy > profit) {
+                profit = prices[i] - buy;
+            }
+        }
+        return profit;
+    }
+}
+```
