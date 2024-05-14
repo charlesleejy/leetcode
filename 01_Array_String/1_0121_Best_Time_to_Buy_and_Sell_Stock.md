@@ -36,7 +36,7 @@ Explanation:
 
 
 Python
-```
+``` py
 class Solution:
     def maxProfit(self, prices):
         buy = prices[0]
@@ -51,7 +51,7 @@ class Solution:
 
 
 Java
-```
+``` java
 class Solution {
     public int maxProfit(int[] prices) {
         int buy = prices[0];
